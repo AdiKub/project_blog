@@ -1,14 +1,17 @@
 body {
-  display: flex;
-  flex-direction: column;
   margin: 0;
-  font-family: 'Gill Sans',Calibri;
-  
-  
+  font-family: 'Gill Sans',Calibri; 
+}
+.main__body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
+/* display: flex;
+justify-content: center;
+flex-direction: column; */
 .header {
-  margin-left: 17.4%;
   background-color: aquamarine;
   width: 1140px;
   display: flex;
@@ -21,8 +24,8 @@ body {
 }
 
 .logo-wrapper {
-   align-items: center;
-   display: flex;
+  align-items: center;
+  display: flex;
   flex-direction: row;
  
 }
@@ -34,11 +37,10 @@ body {
   text-transform: uppercase;
   margin-bottom: 13%;
 }
-
 .navigation__list {
-  margin-left: 10.9%;
-  
+  padding-left: 14.3%;
   display: flex;
+  justify-content: space-between;
   list-style: none;
   font-size: 1.08em;
   margin-top: 2%;
@@ -62,17 +64,35 @@ body {
   border: 0;
 }
 
-
 .sub-header {
+  display: flex;
   background-image: url(./images/footer_fon.png);
   height: 400px;
-  width: 100%;
+  flex-basis: 100%;
+  justify-content: center;
 }
 
+
 .sub-header__title{
-  margin-top: 4.8%;
-  margin-left: 17.3%;
+  display: flex;
+  margin-top: 90px;
+  width: 1140px;
   color: white;
   text-transform: uppercase;
 }
 
+
+.container {
+  background-color: antiquewhite;
+  width: 1140px;
+  justify-content: space-between;
+  display: flex;
+}
+.contents-wrapper {
+  border: 1px solid blue;
+  flex-basis: 65.6%;
+}
+.aside {
+  flex-basis: 31.5%;
+  border: 1px solid blue;
+}

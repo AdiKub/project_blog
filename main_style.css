@@ -3,10 +3,12 @@ body {
   flex-direction: column;
   margin: 0;
   font-family: 'Gill Sans',Calibri;
-  align-items: center;
+  
+  
 }
 
 .header {
+  margin-left: 17.4%;
   background-color: aquamarine;
   width: 1140px;
   display: flex;
@@ -28,7 +30,7 @@ body {
   margin-right: 3%;
 }
 .logo__text {
-   font-size: 1.57em;
+  font-size: 1.57em;
   text-transform: uppercase;
   margin-bottom: 13%;
 }
@@ -62,14 +64,14 @@ body {
 
 
 .sub-header {
-  
-  display: flex;
   background-image: url(./images/footer_fon.png);
   height: 400px;
   width: 100%;
 }
+
 .sub-header__title{
-  
+  margin-top: 4.8%;
+  margin-left: 17.3%;
   color: white;
   text-transform: uppercase;
 }

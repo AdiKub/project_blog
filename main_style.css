@@ -130,7 +130,7 @@ flex-direction: column; */
 }
 .content__text {
   font-weight: 600;
-  font-size: 1.1731em;
+  font-size: 1.172em;
 }
 .content-author_link {
   text-decoration: none;
@@ -162,15 +162,12 @@ flex-direction: column; */
   border: 0;
   font-size: 1.05em;
   font-weight: 700;
-  
 }
 .aside__search__logo {
   font-size: 18px;
   position: absolute;
   margin-top: 50px;
-  margin-left: 291px;
-
-  
+  margin-left: 291px;  
 }
 .aside-search__title {
   margin: 10px 0 5px 0;
@@ -178,16 +175,16 @@ flex-direction: column; */
 }
 
 .aside-block {
-  margin-top: 44px;
+  margin-top: 45px;
   display: flex;
   flex-direction: column;
   align-content: flex-start;
 }
 .aside-block__title {
-  font-size: 1.58em;
-  height: 48px;
+  font-size: 1.52em;
+  height: 47px;
   width: 125px;
-  margin: 0;
+  margin: 0 0 0 0;
   border-bottom: 2px solid #0055a6;
 }
 
@@ -206,18 +203,40 @@ flex-direction: column; */
   background-color: #ededed;
 }
 .aside-populars_link {
-  
   font-weight: bold;
   font-size: 1.09em;
   text-decoration: none;
   color: black;
 }
 
-.aside-post__img {
-  width: 80px;
-  height: 80px;
+.aside-post {
+  height: 176px;;
+  display: flex;
+  border-bottom: 1px solid #eaeaea;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .aside-post__title {
+  margin: 23px 0 23px 0;
+}
+
+.aside-post_content {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.aside-post__img {
+  flex-basis: 80px;
+}
+
+.aside-post__link {
+  font-size: 1.08em;
   text-decoration: none;
-  list-style: none;
+  color: black;
+}
+
+.aside-post__text {
+  font-size: 1em;
+  margin: 0 0 0 20px;
 }

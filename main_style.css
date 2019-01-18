@@ -320,3 +320,142 @@ flex-direction: column; */
   font-weight: bold;
   text-decoration: none;
 }
+.connect__container {
+  padding: 80px 10px 90px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #0055a6;
+}
+
+.connect__text {
+  text-align: center;
+  width: 80%;
+  font-size: 2.1em;
+  font-weight: bold;
+  color: white;
+}
+
+.connect_input_container {
+  flex-direction: column;
+  display: flex;
+  width: 67%;
+  height: 390px;
+  margin-top: 80px;
+  padding: 10px;
+}
+.input_container_first {
+  justify-content: space-between;
+  align-items: stretch;
+  display: flex;
+}
+.connect_input {
+  margin: 30px 0 0 30px;
+  width: 100%;
+  height: 45px;
+  border: 0;
+  padding: 0 0 0 10px;
+}
+.connect_input_2 {
+  margin: 30px 0 0 30px;
+  height: 120px;
+  padding: 0 0 0 10px;
+  border: 0;
+
+}
+.con_but {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.connect__button {
+  width: 165px;
+  height: 50px;
+  font-weight: bold;
+  padding: 0;
+  border: none;
+  background-color: white;
+  font-size: 1em;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.footer__container {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 100px;
+}
+.main__footer {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  background-color: #161b29;
+}
+.sub__footer {
+  height: 60px;
+  background-color: #101624;
+}
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-top: 60px;
+  margin-right: 80px;
+}
+.contact_list {
+  padding: 0;
+  margin: 0;
+}
+.contact_item {
+  margin-top: 20px;
+  list-style: none;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.contact_icon {
+  margin-right: 10px;
+}
+.footer__Links {
+  margin-right: 460px;
+   display: flex;
+  flex-direction: column;
+  color: white;
+  margin-top: 60px;
+}
+.footer__Gallery {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-top: 60px;
+}
+.Gallery_list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 280px;
+  padding: 0;
+  margin: 0;
+}
+.Gallery__item {
+  list-style: none;
+  margin: 6px 10px 0 0;
+  
+}
+
+.link_item {
+  font-size: 1.1em;
+  margin-top: 10px;
+  list-style: none;
+}
+.sub__footer {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}

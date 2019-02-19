@@ -2,14 +2,14 @@ const jqxhr = $.getJSON("./mockedData/blog.json", response => {
   sessionStorage.setItem("response", JSON.stringify(response))
   renderIsActivBlocks(response);
 })
-  .done((response) => {
-    console.log("second success");
-  })
-  .fail((response) => {
-    console.log("error");
-  })
+.done((response) => {
+  console.log("second success");
+})
+.fail((response) => {
+  console.log("error");
+})
 
-
+const arrayOfBlocks = JSON.parse(sessionStorage.getItem("response"));
 
 renderBlocks = (response) => {
   let count = 0;
@@ -77,7 +77,7 @@ renderBlocks = (response) => {
   console.log(count);
 }
 
-console.log(jqxhr);
+
 
 renderIsActivBlocks = (response) => {
   clearBlogs();
@@ -86,13 +86,6 @@ renderIsActivBlocks = (response) => {
   renderBlocks(newArr);
   console.log(response[1]["isActiv"])
 }
-
-// renderIsNotActivBlocks = (response) => {
-//   clearBlogs();
-//   const newArr =[];
-//   response.map(activ=> !activ.isActiv && newArr.push(activ))
-//   renderBlocks(newArr);
-// }
 
 
 $('.sub-header__title').click(() => {
@@ -109,10 +102,14 @@ $('.aside-populars_link').click((event) => {
   clickTag(clickedTag)
 })
 
+$("#aside-search-input").keyup(()=>{
+  let inputValues = $("#aside-search-input").val();
+  inputValues === "" && renderIsActivBlocks(arrayOfBlocks);
+})
+
 
 const clickTag = (clickedTag) => {
   const newArr = [];
-  const arrayOfBlocks = JSON.parse(sessionStorage.getItem("response"));
   arrayOfBlocks.map(blog =>
     blog.cotegoryName === clickedTag && newArr.push(blog));
     clearBlogs();
@@ -120,12 +117,12 @@ const clickTag = (clickedTag) => {
   console.log(clickedTag)
   count = 0;
 }
-// исправить
-searchBlock = inputValues => {
-  const arrayOfBlocks = JSON.parse(sessionStorage.getItem("response"));
-  let newArr = [];
 
-  const regex = new RegExp(`\\b${inputValues}`, 'gi');
+searchBlock = inputValues => {
+  let newArr = [];
+  const regex = new RegExp(`\\B${inputValues}\\b|\\b${inputValues}`, 'gi');
+  //const regex = new RegExp(`${inputValues}`, 'gi');
+   console.log(regex);
   arrayOfBlocks.map(blogObject => {
     if (regex.test(blogObject.title)) {
       newArr.push(blogObject)
@@ -140,8 +137,6 @@ clearBlogs = () => {
   $('.contents-wrapper_link').html('');
   $('.contents-wrapper_blog').html('');
 }
-
-
 
 
 

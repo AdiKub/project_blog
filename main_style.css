@@ -415,7 +415,7 @@ flex-direction: column; */
   width: 100%;
 }
 .footer__container {
-  width: 80%;
+  width: 1170px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

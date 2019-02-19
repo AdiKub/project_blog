@@ -2,19 +2,68 @@ const jqxhr = $.getJSON("./mockedData/blog.json", response => {
   sessionStorage.setItem("response", JSON.stringify(response))
   renderIsActivBlocks(response);
 })
-.done((response) => {
-  console.log("second success");
-})
-.fail((response) => {
-  console.log("error");
-})
+  .done((response) => {
+    console.log("second success");
+  })
+  .fail((response) => {
+    console.log("error");
+  })
 
 const arrayOfBlocks = JSON.parse(sessionStorage.getItem("response"));
+
+$("#aside__search__button").click(() => {
+  searchBlock($("#aside-search-input").val());
+})
+
+$('.aside-populars_link').click((event) => {
+  clickTag(event.target.innerHTML)
+})
+
+$("#aside-search-input").keyup(() => {
+  !$("#aside-search-input").val() && renderIsActivBlocks(arrayOfBlocks);
+})
+
+renderIsActivBlocks = (response) => {
+  clearBlogs();
+  const newArr = [];
+  response.map(activ => activ.isActiv && newArr.push(activ))
+  renderBlocks(newArr);
+  console.log(response[1]["isActiv"])
+}
+
+const clickTag = (clickedTag) => {
+  const newArr = [];
+  arrayOfBlocks.map(blog =>
+    blog.cotegoryName === clickedTag && newArr.push(blog));
+  clearBlogs();
+  newArr.length > 0 ? renderBlocks(newArr) : renderBlocks(arrayOfBlocks);
+  console.log(clickedTag)
+  count = 0;
+}
+
+searchBlock = inputValues => {
+  let newArr = [];
+  //const regex = new RegExp(`\\B${inputValues}\\b|\\b${inputValues}`, 'gi');  
+  const regex = new RegExp(`${inputValues}`, 'gi');
+  arrayOfBlocks.map(blogObject => {
+    if (regex.test(blogObject.title)) {
+      newArr.push(blogObject)
+    }
+  })
+  clearBlogs();
+  renderBlocks(newArr)
+}
+
+clearBlogs = () => {
+  $('.contents-wrapper_quote').html('');
+  $('.contents-wrapper_link').html('');
+  $('.contents-wrapper_blog').html('');
+}
 
 renderBlocks = (response) => {
   let count = 0;
   response.map(blogItem => {
-     if (!blogItem.imageUrl) { 
+    if (!blogItem.imageUrl) {
       count++;
       $(".contents-wrapper_quote").prepend(
         `<section class="content">
@@ -36,7 +85,7 @@ renderBlocks = (response) => {
         </p>
       </section>`
       )
-    } else if (blogItem.link) { 
+    } else if (blogItem.link) {
       count++;
       $(".contents-wrapper_link").prepend(
         `<section class="content">
@@ -56,7 +105,7 @@ renderBlocks = (response) => {
           </p>
         </section>`
       )
-    } else { 
+    } else {
       count++;
       $(".contents-wrapper_blog").prepend(`<section class="content">
       <h4 class="date">${blogItem.createdDate}</h4>
@@ -76,68 +125,6 @@ renderBlocks = (response) => {
   })
   console.log(count);
 }
-
-
-
-renderIsActivBlocks = (response) => {
-  clearBlogs();
-  const newArr =[];
-  response.map(activ=> activ.isActiv && newArr.push(activ))
-  renderBlocks(newArr);
-  console.log(response[1]["isActiv"])
-}
-
-
-$('.sub-header__title').click(() => {
-  location.reload()
-});
-
-$("#aside__search__button").click(() => {
-  let inputValues = $("#aside-search-input").val();
-  searchBlock(inputValues);
-})
-
-$('.aside-populars_link').click((event) => {
-  const clickedTag = event.target.innerHTML;
-  clickTag(clickedTag)
-})
-
-$("#aside-search-input").keyup(()=>{
-  let inputValues = $("#aside-search-input").val();
-  inputValues === "" && renderIsActivBlocks(arrayOfBlocks);
-})
-
-
-const clickTag = (clickedTag) => {
-  const newArr = [];
-  arrayOfBlocks.map(blog =>
-    blog.cotegoryName === clickedTag && newArr.push(blog));
-    clearBlogs();
-    newArr.length > 0? renderBlocks(newArr) : renderBlocks(arrayOfBlocks);
-  console.log(clickedTag)
-  count = 0;
-}
-
-searchBlock = inputValues => {
-  let newArr = [];
-  const regex = new RegExp(`\\B${inputValues}\\b|\\b${inputValues}`, 'gi');
-  //const regex = new RegExp(`${inputValues}`, 'gi');
-   console.log(regex);
-  arrayOfBlocks.map(blogObject => {
-    if (regex.test(blogObject.title)) {
-      newArr.push(blogObject)
-    }
-  })
-  clearBlogs();
-  renderBlocks(newArr)
-}
-
-clearBlogs = () => {
-  $('.contents-wrapper_quote').html('');
-  $('.contents-wrapper_link').html('');
-  $('.contents-wrapper_blog').html('');
-}
-
 
 
 
